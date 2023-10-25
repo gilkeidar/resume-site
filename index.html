@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gil Keidar</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            /* Initial animation (tablet & desktop only) */
+
+            @keyframes intro-header {
+                from {
+                    margin-inline-start: -150%;
+                }
+
+                to {
+                    margin-inline-start: 0%;
+                }
+            }
+
+            @keyframes intro-section-heading {
+                from {
+                    margin-block-start: 150%;
+                }
+
+                to {
+                    margin-block-start: 0%;
+                }
+            }
+
+            @keyframes intro-picture {
+                from {
+                    margin-inline-start: 150%;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                to {
+                    margin-inline-start: 0%;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            /* Source: https://css-tricks.com/hide-scrollbars-during-an-animation/ */
+            @keyframes hide-scroll {
+                from {
+                    overflow: hidden;
+                }
+                to {
+                    overflow: hidden;
+                }
+            }
+
+            /* || Tablet & Desktop Styles */
+            @media screen and (40rem < width)
+            {
+                /* Animation Hide Scroll Bars */
+                #page-container, main {
+                    animation: hide-scroll;
+                    animation-duration: 2s;
+                }
+
+                /* Desktop Main Section Home Page Style */
+                main {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-template-rows: min-content auto auto;
+                    justify-content: center;
+                    grid-template-areas:
+                    "header picture"
+                    "section picture"
+                    ". picture";
+                    gap: 2vw;
+                    
+                }
+
+                main header {
+                    grid-area: header;
+                    animation: intro-header;
+                    animation-duration: 2s;
+                }
+
+                main section {
+                    grid-area: section;
+                }
+
+                main picture {
+                    grid-area: picture;
+                    animation: intro-picture;
+                    animation-duration: 2s;
+                }
+
+                main h2 {
+                    margin-inline-start: 2.5vw;
+                    animation: intro-section-heading;
+                    animation-duration: 2s;
+                }
+
+                section section {
+                    margin-block-start: 1dvw;
+                    margin-inline-start: 5dvw;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <header>
+                    <h1>Hi there! I'm Gil.</h1>
+                    <p>Welcome to my resume website!</p>
+                </header>
+                <section>  
+                    <h2>Are you a...</h2>
+                    <section>
+                        <h3>Recruiter?</h3>
+                        <ul>
+                            <li>You can find my <a href="/resume.html">resume</a></li>
+                            <li>Here's a list of my <a href="/experience.html">skills</a></li>
+                        </ul>
+                        <h3>Interviewer?</h3>
+                        <ul>
+                            <li>Here's a list of my <a href="/experience.html">skills</a></li>
+                            <li>You can check out <a href="/projects.html">my projects</a></li>
+                        </ul>
+                    </section>
+                </section>
+                <picture>
+                    <!-- <source 
+                        srcset="/assets/images/gil-keidar-mount-whitney-1200_x_1600.jpg"
+                        media="(min-width: 2400px)"
+                        type="image/jpeg"
+                        width="1200"
+                        height:="1600"
+                    >
+                    <source 
+                        srcset="/assets/images/gil-keidar-mount-whitney-960_x_1280-min.jpg"
+                        media="(min-width: 2000px)"
+                        type="image/jpeg"
+                        width="960"
+                        height:="1280"
+                    > -->
+                    <source 
+                        srcset="/assets/images/gil-keidar-mount-whitney-480_x_640.jpg"
+                        media="(min-width: 40rem)"
+                        type="image/jpeg"
+                        width="480"
+                        height="640"
+                    >
+                    <img 
+                        src="/assets/images/gil-keidar-mount-whitney-240_x_320.jpg" 
+                        alt="Gil Keidar on a hike in Mount Whitney" 
+                        width="240" 
+                        height="320"
+                    >
+                </picture>
+            </main>
+        </div>
+    </body>
+</html>

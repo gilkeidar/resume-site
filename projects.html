@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            #projects-list {
+                grid-area: projects;
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            article {
+                background-color: var(--header-background-color);
+            }
+
+            article > h2 a {
+                text-decoration: none;
+            }
+
+            article > picture {
+                grid-area: image;
+                border: 1px solid var(--important-color);
+            }
+
+            article > section ul {
+                list-style-type: none;
+                flex: 1;
+                display: flex;
+                gap: 0.5rem;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            skill-tag {
+                color: var(--section-background-color);
+                background-color: var(--important-color);
+                cursor: pointer;    
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                font-size: 1.1rem;
+            }
+
+            aside {
+                background-color: var(--header-background-color);
+                grid-area: aside;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            aside ol {
+                list-style-type: none;
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            main h1 {
+                grid-area: title;
+            }
+
+            article > h2 {
+                grid-area: title;
+            }
+
+            picture img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            article > p {
+                grid-area: summary;
+            }
+
+            article > section {
+                grid-area: tags;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            article > section ul li {
+                display: flex;
+            }
+
+            aside ol li {
+                display: flex;
+            }
+
+            /* || Phone Styles */
+            @media screen and (width <= 40rem) {
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "title"
+                    "aside"
+                    "projects";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    display: grid;
+                    grid-template-areas:
+                    "title"
+                    "summary"
+                    "image"
+                    "tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Tablet Styles */
+            @media screen and (40rem < width <= 70rem) {
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "title"
+                    "aside"
+                    "projects";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Desktop Styles */
+            @media screen and (70rem < width)
+            {
+                main {
+                    display: grid;
+                    grid-template-columns: auto 30%;
+                    justify-content: center;
+                    grid-template-areas:
+                    "title title"
+                    "projects aside"
+                    "projects .";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <h1>Projects</h1>
+                <ol id="projects-list">
+                    <li>
+                        <article>
+                            <h2><a href="projects/bytefrost.html">ByteFrost - Breadboard 8 Bit CPU</a></h2>
+                            <picture>
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.webp"
+                                    media="(min-width: 70rem)"
+                                    type="image/webp"
+                                    width="1280"
+                                    height="720"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.jpg"
+                                    media="(min-width: 70rem)"
+                                    type="image/jpeg"
+                                    width="1280"
+                                    height="720"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.webp"
+                                    media="(min-width: 40rem)"
+                                    type="image/webp"
+                                    width="640"
+                                    height="360"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.jpg"
+                                    media="(min-width: 40rem)"
+                                    type="image/jpeg"
+                                    width="640"
+                                    height="360"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.webp"
+                                    type="image/webp"
+                                    width="400"
+                                    height="225"
+                                >
+                                <img 
+                                    src="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.jpg" 
+                                    alt="ByteFrost, an 8 bit computer, solving the Eight Queens Problem" 
+                                    width="400" 
+                                    height="225">
+                            </picture>
+                            <p>An ongoing project to build an 8 bit CPU using breadboards.</p>
+                            <section>
+                                <h3>Skills</h3>
+                                <ul>
+                                    <li>
+                                        <skill-tag>Assembly</skill-tag>
+                                    </li>
+                                    <li>
+                                        <skill-tag>C</skill-tag>
+                                    </li>
+                                    <li>
+                                        <skill-tag>CPU Design</skill-tag>
+                                    </li>
+                                </ul>
+                            </section>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h2><a href="projects/kurama.html">Kurama - Application-Specific 9 Bit FPGA CPU</a></h2>
+                            <picture>
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.webp"
+                                    media="(min-width: 70rem)"
+                                    type="image/webp"
+                                    width="1280"
+                                    height="720"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.jpg"
+                                    media="(min-width: 70rem)"
+                                    type="image/jpeg"
+                                    width="1280"
+                                    height="720"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.webp"
+                                    media="(min-width: 40rem)"
+                                    type="image/webp"
+                                    width="640"
+                                    height="360"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.jpg"
+                                    media="(min-width: 40rem)"
+                                    type="image/jpeg"
+                                    width="640"
+                                    height="360"
+                                >
+                                <source 
+                                    srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.webp"
+                                    type="image/webp"
+                                    width="400"
+                                    height="225"
+                                >
+                                <img 
+                                    src="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.jpg" 
+                                    alt="ByteFrost, an 8 bit computer, solving the Eight Queens Problem" 
+                                    width="400" 
+                                    height="225">
+                            </picture>
+                            <p>An ongoing project to build an 8 bit CPU using breadboards.</p>
+                            <section>
+                                <h3>Skills</h3>
+                                <ul>
+                                    <li>
+                                        <skill-tag>Assembly</skill-tag>
+                                    </li>
+                                    <li>
+                                        <skill-tag>CPU Design</skill-tag>
+                                    </li>
+                                    <li>
+                                        <skill-tag>Java</skill-tag>
+                                    </li>
+                                    <li>
+                                        <skill-tag>SystemVerilog</skill-tag>
+                                    </li>
+                                </ul>
+                            </section>
+                        </article>
+                    </li>
+                </ol>
+                <aside>
+                    <h2>Skills Used</h2>
+                    <ol>
+                        <li>
+                            <skill-tag>Assembly - 2</skill-tag>
+                        </li>
+                        <li>
+                            <skill-tag>C - 1</skill-tag>
+                        </li>
+                        <li>
+                            <skill-tag>CPU Design - 2</skill-tag>
+                        </li>
+                        <li>
+                            <skill-tag>Java - 1</skill-tag>
+                        </li>
+                        <li>
+                            <skill-tag>SystemVerilog - 1</skill-tag>
+                        </li>
+                    </ol>
+                </aside>
+            </main>
+        </div>
+    </body>
+</html>

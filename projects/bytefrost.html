@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ByteFrost - BreadBoard 8 Bit CPU</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            article {
+                grid-area: article;
+                background-color: var(--header-background-color);
+                padding: 2rem;
+                margin: 0 auto;
+            }
+
+            article * {
+                max-width: 100%;
+            }
+
+            article header > h1 {
+                grid-area: title;
+            }
+
+            article header > picture {
+                grid-area: image;
+                border: 1px solid var(--important-color);
+            }
+
+            article header > p {
+                grid-area: summary;
+            }
+
+            article header > section {
+                grid-area: tags;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            article header > section ul {
+                list-style-type: none;
+                flex: 1;
+                display: flex;
+                gap: 0.5rem;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            article header > section ul li {
+                display: flex;
+            }
+
+            skill-tag {
+                color: var(--section-background-color);
+                background-color: var(--important-color);
+                cursor: pointer;    
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                font-size: 1.1rem;
+            }
+
+            article > footer {
+                text-align: center;
+            }
+
+            aside {
+                background-color: var(--header-background-color);
+                grid-area: aside;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            aside ul {
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            picture img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            aside li a {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                text-decoration: none;
+            }
+
+            /* || Phone Styles */
+            @media screen and (width <= 40rem) {
+                
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "aside"
+                    "article";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: start;
+                    padding: 1rem;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-columns: auto;
+                    grid-template-areas:
+                    "title"
+                    "summary"
+                    "image"
+                    "tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Tablet Styles */
+            @media screen and (40rem < width <= 70rem) {
+
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "aside"
+                    "article";
+                    gap: 2vh 2vw;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Desktop Styles */
+            @media screen and (70rem < width) {
+
+                main {
+                    display: grid;
+                    grid-template-columns: auto 30%;
+                    justify-content: center;
+                    grid-template-areas:
+                    "article aside"
+                    "article .";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    max-width: 150ch;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <article>
+                    <header>
+                        <h1>ByteFrost - BreadBoard 8 Bit CPU</h1>
+                        <picture>
+                            <source 
+                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.webp"
+                                media="(min-width: 70rem)"
+                                type="image/webp"
+                                width="1280"
+                                height="720"
+                            >
+                            <source 
+                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.jpg"
+                                media="(min-width: 70rem)"
+                                type="image/jpeg"
+                                width="1280"
+                                height="720"
+                            >
+                            <source 
+                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.webp"
+                                media="(min-width: 40rem)"
+                                type="image/webp"
+                                width="640"
+                                height="360"
+                            >
+                            <source 
+                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.jpg"
+                                media="(min-width: 40rem)"
+                                type="image/jpeg"
+                                width="640"
+                                height="360"
+                            >
+                            <source 
+                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.webp"
+                                type="image/webp"
+                                width="400"
+                                height="225"
+                            >
+                            <img 
+                                src="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.jpg" 
+                                alt="ByteFrost, an 8 bit computer, solving the Eight Queens Problem" 
+                                width="400" 
+                                height="225">
+                        </picture>
+                        <p>An ongoing project to build an 8 bit CPU using breadboards.</p>
+                        <section>
+                            <h2>Skills</h2>
+                            <ul>
+                                <li>
+                                    <skill-tag>Assembly</skill-tag>
+                                </li>
+                                <li>
+                                    <skill-tag>C</skill-tag>
+                                </li>
+                                <li>
+                                    <skill-tag>CPU Design</skill-tag>
+                                </li>
+                            </ul>
+                        </section>
+                    </header>
+                    <section>
+                        <h2>Project Description</h2>
+                        <p>In this project, we're designing and building a CPU from discrete logic gates and other integrated circuits on a breadboard, designing an instruction set inspired by RISC principles, writing an assembler, creating a display driver card using an Arduino Nano, and more. We've shown that the ByteFrost is capable of sorting a list of numbers using a Binary Search Tree recursively using a stack and solving the Eight Queens Problem (printing all 92 solutions) in about 5 seconds.</p>
+                    </section>
+                </article>
+                <aside>
+                    <h2>Links</h2>
+                    <ul>
+                        <li><a href="https://github.com/gilkeidar/ByteFrost"><img src="/assets/images/github-logo.svg" alt="GitHub" width="48" height="48">GitHub Repository</a></li>
+                        <li><a href="https://www.youtube.com/@bytefrost"><img src="/assets/images/youtube-logo.svg" alt="YouTube" width="48" height="48">ByteFrost YouTube Channel</a></li>
+                    </ul>
+                </aside>
+            </main>
+        </div>
+    </body>
+</html>

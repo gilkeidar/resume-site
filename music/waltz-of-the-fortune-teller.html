@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Waltz of the Fortune Teller</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            article {
+                grid-area: article;
+                background-color: var(--header-background-color);
+                padding: 2rem;
+                margin: 0 auto;
+            }
+
+            article * {
+                max-width: 100%;
+            }
+
+            article header > h1 {
+                grid-area: title;
+            }
+
+            article header > picture {
+                grid-area: image;
+                border: 1px solid var(--important-color);
+            }
+
+            article header > p {
+                grid-area: summary;
+            }
+
+            article header > section {
+                grid-area: tags;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            article header > section ul {
+                list-style-type: none;
+                flex: 1;
+                display: flex;
+                gap: 0.5rem;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            article header > section ul li {
+                display: flex;
+            }
+
+            category-tag {
+                color: var(--section-background-color);
+                background-color: var(--important-color);
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                font-size: 1.1rem;
+                cursor: pointer;
+            }
+
+            article > footer {
+                text-align: center;
+            }
+
+            aside {
+                background-color: var(--header-background-color);
+                grid-area: aside;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            aside ul {
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            picture img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            aside li a {
+                text-decoration: none;
+            }
+
+            /* || Phone Styles */
+            @media screen and (width <= 40rem) {
+                
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "aside"
+                    "article";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: start;
+                    padding: 1rem;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-columns: auto;
+                    grid-template-areas:
+                    "title"
+                    "summary"
+                    "image"
+                    "tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Tablet Styles */
+            @media screen and (40rem < width <= 70rem) {
+
+                main {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas:
+                    "aside"
+                    "article";
+                    gap: 2vh 2vw;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            /* || Desktop Styles */
+            @media screen and (70rem < width) {
+
+                main {
+                    display: grid;
+                    grid-template-columns: auto 30%;
+                    justify-content: center;
+                    grid-template-areas:
+                    "article aside"
+                    "article .";
+                    gap: 2vh 2vw;
+                }
+
+                article {
+                    max-width: 150ch;
+                }
+
+                article header {
+                    display: grid;
+                    grid-template-rows: min-content 1fr min-content;
+                    grid-template-areas:
+                    "title title"
+                    "image summary"
+                    "image tags";
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <article>
+                    <header>
+                        <h1>Waltz of the Fortune Teller</h1>
+                        <picture>
+                            <img 
+                                src="/assets/images/music/waltz-of-the-fortune-teller/thumbnail-400_x_400.jpg" 
+                                alt="Waltz of the Fortune Teller thumbnail" 
+                                width="400" 
+                                height="400"
+                            >
+                        </picture>
+                        <p>An orchestral waltz composed for the main page of MapMyFuture, a CSE 110 project.</p>
+                        <audio src="/assets/audio/music/waltz-of-the-fortune-teller/Waltz_of_the_Fortune_Teller.wav" controls>
+                            <a href="/assets/audio/music/waltz-of-the-fortune-teller/Waltz_of_the_Fortune_Teller.wav">Download Waltz of the Fortune Teller</a>
+                        </audio>
+                    </header>
+                    <section>
+                        <h2>Piece Description</h2>
+                        <p>A short piece I wrote to serve as the main theme for a web application I worked on in Team 21 (Canaries) for the course CSE 110 at the University of California, San Diego. 
+                            The theme for our applications this quarter was fortune telling, hence the name (and inspiration for) the piece. 
+                        </p>
+                        <p>
+                            You can see our application here: <a href="https://cse110-sp23-group21.github.io/map-my-future/">Map My Future</a>
+                        </p>
+                    </section>
+                </article>
+                <aside>
+                    <h2>Links</h2>
+                    <ul>
+                        <li><a href="https://musescore.com/user/35433190/scores/11060896">Sheet Music</a></li>
+                        <li><a href="https://soundcloud.com/gil-keidar/waltz-of-the-fortune-teller">SoundCloud</a></li>
+                        <li><a href="https://cse110-sp23-group21.github.io/map-my-future/">Map My Future</a></li>
+                    </ul>
+                </aside>
+            </main>
+        </div>
+    </body>
+</html>

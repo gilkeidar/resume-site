@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Error 404 File Not Found</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+            /* || Tablet and Desktop Styles */
+            @media screen and (40rem < width) {
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1vh;
+                }
+
+                main > a {
+                    font-size: var(--p-font-size);
+                }   
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <h1>404</h1>
+                <p>I have no memory of this place...</p>
+                <p>It seems that this file doesn't exist. Why not check out my latest <a href="/music/waltz-of-the-fortune-teller.html">piece</a> instead?</p>
+                <a href="index.html">Home Page</a>
+            </main>
+        </div>
+    </body>
+</html>

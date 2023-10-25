@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Me</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            #contact-me {
+                background-color: var(--header-background-color);
+            }
+
+            #contact-me input, #contact-me textarea {
+                font-size: var(--p-font-size);
+                padding: 1rem;
+            }
+
+            #contact-me textarea {
+                resize: none;
+            }
+
+            #contact-me button {
+                border: none;
+                color: var(--section-background-color);
+                background-color: var(--important-color);   
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                font-size: var(--p-font-size);
+            }
+
+            address a {
+                font-size: var(--p-font-size);
+            }
+
+            /* || Phone Styles */
+            @media screen and (width <= 40rem)
+            {
+                main {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #contact-me {
+                    display: grid;
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+
+                #contact-me label {
+                    font-size: var(--h2-font-size);
+                }
+
+                #contact-me input, #contact-me textarea {
+                    max-width: 100%;
+                }
+            }
+
+            /* || Tablet Styles */
+            @media screen and (40rem < width <= 70rem)
+            {
+                main {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #contact-me {
+                    display: grid;
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                }
+
+                #contact-me label {
+                    font-size: var(--p-font-size);
+                }
+
+                #contact-me textarea {
+                    max-height: min(50vh, 50rem);
+                    height: 30ex;
+                }
+
+                address {
+                    display: flex;
+                    gap: 1rem;
+                }
+
+            }
+
+            /* || Desktop Styles */
+            @media screen and (70rem < width) {
+                main {
+                    display: grid;
+                    justify-content: center;
+                    text-align: center;
+                    row-gap: 1rem;
+                }
+
+                #contact-me {
+                    text-align: start;
+                    width: fit-content;
+                    display: grid;
+                    justify-self: center;
+                    grid-template-columns: min-content auto;
+                    grid-template-areas: 
+                    "name-label name-field"
+                    "email-label email-field"
+                    "message-label message-field"
+                    ". submit";
+                    padding: 2rem;
+                    gap: 1rem;
+                    border-radius: 0.5rem;
+                }
+
+                #contact-me label {
+                    font-size: var(--p-font-size);
+                    align-self: center;
+                }
+
+                #contact-me label:last-of-type {
+                    align-self: auto;
+                }
+
+                #contact-me button {
+                    grid-area: submit;
+                }
+
+                #contact-me textarea {
+                    max-width: min(50vw, 50rem);
+                    max-height: min(50vh, 50rem);
+                    height: 30ex;
+                    width: 50ex;
+                }
+
+                #contact-me button {
+                    cursor: pointer; 
+                    transition-property: opacity;
+                    transition-duration: var(--hover-duration);
+                }
+
+                #contact-me button:hover {
+                    opacity: 70%;
+                }
+
+                address {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <h1>Contact Me</h1>
+                <form id="contact-me" action="#" method="post">
+                    <label for="name-field">
+                        Name                 
+                    </label>
+                    <input type="text" id="name-field" name="name" autofocus required>
+
+                    <label for="email-field">
+                        Email
+                    </label>
+                    <input type="email" id="email-field" name="email" required>
+                    <label for="message-field">
+                        Message
+                    </label>
+                    <textarea id="message-field" name="message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+                <h2>...or, you can reach me here:</h2>
+                <address>
+                    <a href="mailto:keidar.gil@gmail.com">keidar.gil@gmail.com</a>
+                    <a href="tel:+18582846672">(858) 284-6672</a>
+                </address>
+            </main>
+        </div>
+    </body>
+</html>

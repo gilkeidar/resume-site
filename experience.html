@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experience</title>
+        <link rel="icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/global.css">
+        <style>
+
+            table {
+                background-color: var(--header-background-color);
+                border-spacing: 0;
+                font-size: var(--p-font-size);
+                width: 100%;
+                text-align: center;
+            }
+
+            table ul, table ol, table h3 {
+                text-align: start;
+            }
+
+            table p {
+                margin-inline-end: auto;
+                margin-inline-start: auto;
+            }
+
+            table h3 {
+                font-size: var(--p-font-size);
+                font-weight: bold;
+            }
+
+            td, th {
+                border: 0.25rem solid var(--section-background-color);
+                padding: 0.5rem;
+            }
+
+            thead {
+                font-weight: bold;
+            }
+
+            section + section {
+                margin-top: 2rem;
+            }
+
+            /* || Phone Styles */
+            @media screen and (width <= 40rem) {
+
+                thead {
+                    display: none;
+                }
+
+                tr, th, td {
+                    display: block;
+                }
+
+                tr td:first-child {
+                    font-weight: bold;
+                    font-size: var(--h3-font-size);
+                    color: var(--section-background-color);
+                    background-color: var(--important-color);
+                }
+            }
+
+            /* || Tablet Styles */
+            @media screen and (40rem < width <= 70rem) {
+                section {
+                    overflow: auto;
+                }
+
+                table {
+                    min-width: max(40rem, 50vw);
+                }
+
+                table tr:nth-child(even) {
+                    background-color: lightgray;
+                }
+
+                thead tr {
+                    color: var(--section-background-color);
+                    background-color: var(--important-color);
+                }
+            }
+
+            /* || Desktop Styles */
+            @media screen and (70rem < width) {
+                section {
+                    overflow: auto;
+                }
+
+                table {
+                    min-width: max(40rem, 50vw);
+                }
+
+                thead tr {
+                    color: var(--section-background-color);
+                    background-color: var(--important-color);
+                }
+
+                table tbody tr:nth-child(even) {
+                    background-color: lightgray;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!-- Global header, shown in every page. In future, perhaps put this in a <template> tag (requires
+                JavaScript) -->
+            <header id="main-header">
+                <a id="logo" href="/index.html">Gil Keidar</a>
+                <nav>
+                    <ul>
+                        <li><a href="/about_me.html">About Me</a></li>
+                        <li><a href="/experience.html">Experience</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/my_music.html">My Music</a></li>
+                        <li><a href="/contact_me.html">Contact Me</a></li>
+                    </ul>
+                    <menu>
+                        <li>
+                            <button id="theme-selector">
+                                <img src="/assets/images/retro-theme.png" alt="Select a theme" width="200" height="200">
+                            </button>
+                            
+                            <!-- A list of themes which is hidden by default but display toggled by 
+                                the theme selector button -->
+                            <ul id="themes-list">
+                                <!-- Place these images inside of buttons? -->
+                                <li><img src="/assets/images/retro-theme.png" alt="Retro Theme" width="200" height="200" loading="lazy"></li>
+                                <li><img src="/assets/images/classical-music-theme.png" alt="Classical Music Theme" width="375" height="640" loading="lazy"></li>
+                                <li><img src="/assets/images/old-computers-theme.png" alt="Old Computers Theme" width="225" height="225" loading="lazy"></li>
+                                <li><img src="/assets/images/bytefrost-theme.jpg" alt="ByteFrost Theme" width="176" height="176" loading="lazy"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="search-button">
+                                <img src="/assets/images/search-button.png" alt="Click to search" width="320" height="317">
+                            </button>
+                            <!-- A search bar form which is hidden by default but display toggled by
+                                the theme selector button -->
+                            <form id="website-search" action="#" method="get">
+                                <input type="search" placeholder="Search" name="search">
+                                <button type="submit">&rarr;</button>
+                            </form>
+                        </li>
+                        <li>
+                            <a href="resume.html">My Resume</a>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
+            <!-- Global header -->
+            <main>
+                <h1>Experience</h1>
+                <section id="skills">
+                    <h2>Skills</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Skill</th>
+                                <th>Proficiency</th>
+                                <th>Details</th>
+                                <th>Coursework</th>
+                                <th>Projects</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Include one row per skill -->
+                            <tr>
+                                <td>Java</td>
+                                <td>Proficient</td>
+                                <td>
+                                    <p>I'm comfortable with using Java and have taken 2 courses that heavily used it.</p>
+                                    
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>CSE 11</li>
+                                        <li>CSE 12</li>
+                                        <li>CSE 105</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Implemented a DFA and limited PDA for a CSE 105 project.</li>
+                                        <li>Wrote the Kurama Assembler in Java.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    Backend
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td>Proficient</td>
+                                <td>
+                                    <p>I enjoy writing C code and have used it in low-level courses as well as hardware courses and applications.</p>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>ECE 15</li>
+                                        <li>CSE 30</li>
+                                        <li>CSE 141L</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Wrote the ByteFrost Assembler in C.</li>
+                                        <li>Used C to help writing Kurama 9-bit CPU assembly code (CSE 141L).</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    Backend
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="previous-employment">
+                    <h2>Previous Employment</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Start - End</th>
+                                <th>Position</th>
+                                <th>Company</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Include one row per position -->
+                            <tr>
+                                <td>
+                                    Feb 2020 - Jun 2020
+                                </td>
+                                <td>
+                                    Intern
+                                </td>
+                                <td>
+                                    CBG - Cyber@Ben Gurion University
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Used MediaWiki's API and graphing libraries with JavaScript to 
+                                            create a graph-based navigation tool
+                                        </li>
+                                        <li>Used MediaWiki's API to augment the default search engine to 
+                                            include tags using MVC design pattern and JQuery
+                                        </li>
+                                        <li>
+                                            Used Cytoscape.js to represent data in an interactive way as 
+                                            part of a Tableau project 
+                                        </li>
+                                        <li>
+                                            Refined and refactored CSS code for a web-based project
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="education">
+                    <h2>Education</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Start - End</th>
+                                <th>Type</th>
+                                <th>School</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Include one row per degree / diploma -->
+                            <tr>
+                                <td>2020 - 2024 (Present)</td>
+                                <td>Bachelor of Science</td>
+                                <td>UC San Diego</td>
+                                <td>I am currently studying towards a B.S. in Computer Science.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
