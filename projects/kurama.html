@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ByteFrost - BreadBoard 8 Bit CPU</title>
+        <title>Kurama - Application-Specific 9 Bit FPGA CPU</title>
         <link rel="icon" href="/assets/favicon.ico">
         <link rel="stylesheet" href="/global.css">
         <style>
@@ -234,49 +234,17 @@
             <main>
                 <article>
                     <header>
-                        <h1>ByteFrost - BreadBoard 8 Bit CPU</h1>
+                        <h1>Kurama - 9 Bit FPGA CPU</h1>
                         <picture>
-                            <source 
-                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.webp"
-                                media="(min-width: 70rem)"
-                                type="image/webp"
-                                width="1280"
-                                height="720"
-                            >
-                            <source 
-                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail.jpg"
-                                media="(min-width: 70rem)"
-                                type="image/jpeg"
-                                width="1280"
-                                height="720"
-                            >
-                            <source 
-                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.webp"
-                                media="(min-width: 40rem)"
-                                type="image/webp"
-                                width="640"
-                                height="360"
-                            >
-                            <source 
-                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-640_x_360.jpg"
-                                media="(min-width: 40rem)"
-                                type="image/jpeg"
-                                width="640"
-                                height="360"
-                            >
-                            <source 
-                                srcset="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.webp"
-                                type="image/webp"
-                                width="400"
-                                height="225"
-                            >
                             <img 
-                                src="/assets/images/projects/bytefrost/bytefrost-thumbnail-400_x_225.jpg" 
-                                alt="ByteFrost, an 8 bit computer, solving the Eight Queens Problem" 
-                                width="400" 
-                                height="225">
+                                src="/assets/images/projects/kurama/Kurama Logo.jpg" 
+                                alt="Kurama (9 Bit CPU) logo" 
+                                width="336" 
+                                height="324">
                         </picture>
-                        <p>An ongoing project to build an 8 bit CPU using breadboards.</p>
+                        <p>A university project in which I designed and implemented a 9 Bit ISA / 8 Bit Word CPU
+                            using SystemVerilog.
+                        </p>
                         <section>
                             <h2>Skills</h2>
                             <ul>
@@ -284,24 +252,43 @@
                                     <skill-tag>Assembly</skill-tag>
                                 </li>
                                 <li>
-                                    <skill-tag>C</skill-tag>
+                                    <skill-tag>CPU Design</skill-tag>
                                 </li>
                                 <li>
-                                    <skill-tag>CPU Design</skill-tag>
+                                    <skill-tag>Java</skill-tag>
+                                </li>
+                                <li>
+                                    <skill-tag>SystemVerilog</skill-tag>
                                 </li>
                             </ul>
                         </section>
                     </header>
                     <section>
                         <h2>Project Description</h2>
-                        <p>In this project, we're designing and building a CPU from discrete logic gates and other integrated circuits on a breadboard, designing an instruction set inspired by RISC principles, writing an assembler, creating a display driver card using an Arduino Nano, and more. We've shown that the ByteFrost is capable of sorting a list of numbers using a Binary Search Tree recursively using a stack and solving the Eight Queens Problem (printing all 92 solutions) in about 5 seconds.</p>
+                        <p>This is a project I worked on in CSE 141L (a course I took
+                            in UCSD). It was particularly interesting since we were
+                            restricted to using 9-bit instruction words (compare that
+                            to the ByteFrost's 16 bits) and since it was application-specific,
+                            made to run 3 specific programs. I designed a 9-bit ISA
+                            and designed and implemented Kurama using SystemVerilog.
+                            To avoid writing code in machine language, I wrote an
+                            assembler with Java with label support and derived
+                            instructions for ease of programming.
+                        </p>
+                        <p>The name comes from Kurama, the nine-tailed demon fox from
+                            Naruto; each instruction bit thus can be said to represent
+                            one of Kurama's tails.
+                        </p>
                     </section>
                 </article>
                 <aside>
                     <h2>Links</h2>
                     <ul>
-                        <li><a href="https://github.com/gilkeidar/ByteFrost"><img src="/assets/images/github-logo.svg" alt="GitHub" width="48" height="48">GitHub Repository</a></li>
-                        <li><a href="https://www.youtube.com/@bytefrost"><img src="/assets/images/youtube-logo.svg" alt="YouTube" width="48" height="48">ByteFrost YouTube Channel</a></li>
+                        <li>Since this is a project for a university class, the code 
+                            and specifics of Kurama are not publicly available; however,
+                            if you would like access to the code, feel free to email me
+                            at <a href="mailto:keidar.gil@gmail.com">keidar.gil@gmail.com</a>
+                        </li>
                     </ul>
                 </aside>
             </main>
